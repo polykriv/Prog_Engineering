@@ -25,6 +25,7 @@ print(123)
 print('123')
 print(1.23)
 
+###Результат
 ![Меню](https://github.com/polykriv/Prog_Engineering/blob/Тема_2/Screen_cod/1.jpg)
 
 ##№2
