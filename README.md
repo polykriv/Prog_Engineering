@@ -22,153 +22,162 @@
 Выведите в консоль три строки. Первая – любое число. Вторая – любое число в виде строки. Третья – любое число с плавающей точкой.
 
 ```  python
-one = int(input('Введите значение первой переменной: '))
-two = int(input('Введите значение второй переменной: '))
-if one >= two:
-    print('Выполняется')
-else:
-    print('Не выполняется')
+def main():
+    print(2+2)
+
+if __name__ == '__main__':
+    main()
 ```
 
 ### Результат
 ![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_3/ScreenKod/1.png)
 
 ### Вывод:
-В задании продемонстрировано использование условий if-else для сравнения двух числовых переменных. Программа корректно выводит сообщение о том, выполняется ли условие сравнения.
+
 
 ## №2
 Выведите в консоль три строки. Первая – результат сложения или вычитания минимум двух переменных типа int. Вторая – результат сложения или вычитания минимум двух переменных типа float. Третья – результат сложения или вычитания минимум двух переменных типа int и float.
 
 ```
-one = int(input('Введите значение первой переменной: '))
-if one < 0:
-    print('Переменная меньше 0')
-elif 0 < one < 10:
-    print('Переменная больше 0 и меньше 10')
-else:
-    print('Переменная больше 10')
+def main():
+    result = 2 + 2
+    return result
+
+if __name__ == '__main__':
+    answer = main()
+    print(answer)
 ```
 
 ### Результат
 ![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_3/ScreenKod/2.png)
 
 ### Вывод:
-Программа реализует проверку входного числа и определяет, в какой интервал оно попадает с помощью конструкции if-elif-else. Это пример ветвления по нескольким условиям с выводом подходящего сообщения.
+
 
 ## №3
 Выведите в консоль три строки. Первая – обычная строка. Вторая – F строка с использованием заранее объявленной переменной. Третья – сложите две или более строк в одну.
 
 ```
-numbers = [1, 3, 4, 6, 8, 9]
-value = int(input('Введите значение переменной: '))
-if value in numbers:
-    print('Переменная есть в данном массиве')
-else:
-    print('Переменной нет в этом массиве')
+def main(one, two):
+    result = one + two
+    return result
+
+for i in range(5):
+    x = 1
+    y = 10
+    answer = main(x, y)
+    print(answer)
 ```
 
 ### Результат
 ![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_3/ScreenKod/3.png)
 
 ### Вывод:
-Программа проверяет наличие введенного значения в заданном списке чисел, используя оператор in. В зависимости от результата выводится сообщение о присутствии или отсутствии значения в массиве.
+
 
 ## №4
 Выведите в консоль три строки. Первая - трансформация любого типа переменной в bool.
 Вторая - трансформация любого типа переменной в float или int. Третья - трансформация любого типа переменной в str. 
 
 ```
-numbers = [1, 3, 4, 6, 8, 9, 15, 16, 73, 321, 322]
-value = int(input('Введите значение переменной: '))
-if value in numbers:
-    if value % 2 == 0:
-        print('Переменная четная и есть в данном массиве')
-    else:
-        print('Переменной нечетная и есть в данном массиве')
-else:
-    print(f"Переменной нет в массиве numbers и она равна {value}")
+def main(x, *args):
+    one = x
+    two = sum(args)
+    three = float(len(args))
+
+    print(f"one={one}\ntwo={two}\nthree={three}")
+
+    return x + sum(args) / float(len(args))
+
+if __name__ == '__main__':
+    result = main(10, 0, 1, 2, -1, 0, -1, 1, 2)
+    print(f"\nresult={result}")
 ```
 
 ### Результат
 ![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_3/ScreenKod/4.png)
 
 ### Вывод:
-В задании реализована проверка четности числа и его принадлежности к массиву, а также полнота условий. Выводы корректно информируют пользователя о статусе переменной.
+
 
 ## №5
  Присвойте трем переменным различные значения, воспользовавшись функцией input()
 
 ```
-for i in range(10):
-    print('i = ', i)
-    if i == 0:
-        i += 2
-    if i == 1:
-        continue
-    if i == 2 or i == 3:
-        print('Переменная равна 2 или 3')
-    elif i in [4, 5, 6]:
-        print('Переменная равна 4, 5 или 6')
-    else:
-        break
+def main(**kwargs):
+    for i in kwargs.items():
+        print(i[0], i[1])
+
+    print()
+
+    for key in kwargs:
+        print(f"{key} = {kwargs[key]}")
+
+if __name__ == '__main__':
+    main(x=[1, 2, 3], y=[3, 3, 0], z=[2, 3, 0], q=[3, 3, 0], w=[3, 3, 0])
+    print()
+
+    main(**{'x': [1, 2, 3], 'y': [3, 3, 0]})
 ```
 
 ### Результат
 ![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_3/ScreenKod/5.png)
 
 ### Вывод:
-Программа демонстрирует использование цикла for с условными конструкциями, операторами continue и break для управления потоком выполнения. Логика обработки значений цикла реализована верно.
+
 
 ## №6
 Создайте две любые числовые переменные и выполните над ними несколько математических операций: возведение в степень, обычное деление, целочисленное деление, нахождение остатка от деления. При желании вы можете проверить как работают эти вычисления с разными типами данных, например, сначала создать две переменные int, затем создать две переменные float и наконец создать переменные типа int и float и провести над ними операции, прописанные выше
 
 ```
-string = 'Привет всем мзучающим Python!'
-value = input()
-for i in string:
-    if i == value:
-        index = string.find(value)
-        print(f"Буква '{value}' есть в строке под {index} индексом")
-        break
-else:
-    print(f"Буква '{value}' нет в указанной строке")
+def main(**kwargs):
+
+    for i, j in kwargs.items():
+        print(f"{i}. Mean = {mean(j)}")
+
+def mean(data):
+    return sum(data) / float(len(data))
+
+if __name__ == "__main__":
+    main(x=[1, 2, 3], y=[3, 3, 0])
 ```
 
 ### Результат
 ![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_3/ScreenKod/6.png)
 
 ### Вывод:
-В этом задании продемонстрирован поиск символа в строке с использованием цикла for, оператора break и else. Программа эффективно определяет наличие символа и выводит информацию с индексом.
+
 
 ## №7
 Cоздайте любую строковую переменную и произведите над ней математическое действие умножение на любое число.
 
 ```
-value = 100
-for i in range(10, -1, -1):
-    value -= i
-    print(i, value)
+from for_import import say_hello
+
+if __name__ == '__main__':
+    say_hello()
 ```
 
 ### Результат
 ![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_3/ScreenKod/7.png)
 
 ### Вывод:
-Программа выполняет обратный цикл с уменьшением значения переменной и выводит текущие значения счетчика и переменной. Демонстрирует практическое применение циклов с арифметическими операциями.
+
 
 ## №8
 Посчитайте сколько раз символ "о" встречается в строке 'Hello World'.
 
 ```
-value = 0
-while value < 100:
-    if value == 0:
-        value += 10
-    elif value // 5 > 1:
-        value *= 5
-    else:
-        value -= 5
-    print(value)
+from math import *
+
+def main():
+    value = int(input('Введите значение: '))
+    print(sqrt(value))
+    print(sin(value))
+    print(cos(value))
+
+if __name__ == '__main__':
+    main()
 ```
 
 ### Результат
@@ -176,114 +185,141 @@ while value < 100:
 ![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_3/ScreenKod/8.2.png)
 
 ### Вывод:
-В задании показан цикл while с несколькими условиями изменения значения переменной. Программа иллюстрирует работу циклов с ветвлением и контролем изменения состояния переменной.
+
 
 ## №9
 Напишите предложение Hello World' в две строки. Написанная программа должна занимать одну строку в редакторе кода.
 
 ```
-value = 0
-for i in range(10):
-    for j in range(10):
-        if i != j:
-            value += j
-        else:
-            pass
-print(value)
+from datetime import datetime as dt
+from datetime import timedelta as td
+
+def main():
+    print(
+        f"Сегодня {dt.today().date()}. "
+        f"День недели - {dt.today().isoweekday()}"
+    )
+    n = int(input('Введите количество дней: '))
+    today = dt.today()
+    result = today + td(days=n)
+    print(
+        f"Через {n} дней будет {result.date()}. "
+        f"День недели - {result.isoweekday()}"
+    )
+
+if __name__ == '__main__':
+    main()
 ```
 
 ### Результат
 ![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_3/ScreenKod/9.png)
 
 ### Вывод:
-Программа использует два вложенных цикла for и условие для суммирования значений переменной. Итоговый вывод демонстрирует получение агрегированного результата.
+
 
 ## №10
 Из предложения 'Hello World' выведите в консоль только 2 символ, а затем выведите слово
 'Hello'
 
- ```
-even_array = [2, 4, 6, 8, 9]
-flag = False
-for value in even_array:
-    if value % 2 == 1:
-        flag = True
+```
+global result
 
-if flag is True:
-    print('В массиве есть нечетное число')
-else:
-    print('В массиве все числе четные')
+def rectangle():
+    a = float(input("Ширина: "))
+    b = float(input("Высота: "))
+    global result
+    result = a * b
+
+def triangel():
+    a = float(input("Основание: "))
+    h = float(input("Высота: "))
+    global result
+    result = 0.5 * a * h
+
+figure = input("1-прямоугольник, 2-треугольник: ")
+
+if figure == '1':
+    rectangle()
+elif figure == '2':
+    triangel()
+
+print(f"Площадь: {result}")
 ```
 
 ### Результат
 ![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_3/ScreenKod/10.png)
 
 ### Вывод:
-Программа проверяет наличие нечетных чисел в массиве с помощью цикла for и флага. Вывод корректно отражает наличие или отсутствие нечетных элементов.
+
 
 ## №11
 Выведите в консоль булевую переменную False, не используя слово False в строке или изначально присвоенную булевую переменную. Программа должна занимать не более двух строк редактора кода.
-
-```
-num = 1
-for _ in range(6):
-    num += 1
-num *= 5
-print(num)
-```
 
 ### Результат
 ![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_3/ScreenKod/11(1).png)
 
 ### Вывод:
-Демонстрируется возможность получения конкретного результата (числа) с использованием цикла и арифметических операций. Код отрабатывает последовательно, выводя итоговое значение.
+
 
 ## №12
 Присвоить значения трем переменным и вывести их в консоль, используя только две строки редактора кода
 
 ```
-s = 'Hello World'
-for _ in [0]:
-    for i in range(len(s)-1, -1, -1):
-        for _ in [0]: print(s[i])
+import random
+
+def roll_dice():
+  dice_value = random.randint(1, 6)
+  print("Значение кубика:", dice_value)
+
+  if dice_value in [5, 6]:
+    print("Вы победили")
+  elif dice_value in [3, 4]:
+    print("Повторяем бросок...")
+    roll_dice()
+  else:
+    print("Вы проиграли")
+
+
+if __name__ == "__main__":
+  roll_dice()
 ```
 
 ### Результат
 ![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_3/ScreenKod/12(2).png)
 
 ### Вывод:
-Программа выводит строки в обратном порядке с использованием вложенных циклов и демонстрирует овладение сложными конструкциями циклов для обработки строк.
+
 
 ## №13
 Реализуйте ввод данных в программу, через консоль, в виде только целых чисел (тип данных int). То есть при вводе буквенных символов в консоль, программа не должна работать. Программа должна занимать не более двух строк редактора кода.
 
 ```
-num = int(input())
-if 0 <= num <= 10:
-    if 0 <= num <= 3: print("от 0 до 3 включительно")
-    elif 3 < num <= 6: print("от 3 до 6 включительно")
-    else: print("от 6 до 10 включительно")
-else:
-    print("Число вне диапазона 0-10")
+import datetime
+import time
+
+start_time = time.time()
+while time.time() - start_time < 5:
+    now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    print(now)
+    time.sleep(1)
 ```
 
 ### Результат
 ![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_3/ScreenKod/13(3).png)
 
 ### Вывод:
-Задание показывает возможность получения различного выхода в зависимости от диапазона вводимого числа с использованием вложенных условий и оператора print в одной строке.
+
 
 ## №14
 Создайте только одну строковую переменную. Длина строки должна не превышать 5 символов. На выходе мы должны получить строку длиной не менее 16 символов. Программа должна занимать не более двух строк редактора кода.
 
 ```
-s = input("Ваше предложение (на английском): ")
-lower_s = s.lower()
-g = 'aeiou'
-g_count = sum(lower_s.count(v) for v in g)
+def avg(*args):
+    return sum(args) / len(args) if args else 0
 
-print(f"Длина: {len(s)}, Нижний регистр: {lower_s}, Гласные: {g_count}, Beauty: {s.replace('ugly', 'beauty')}, The?: {s.startswith('The')}, End?: {s.endswith('end')}")
-
+print(avg(1, 2, 3))
+print(avg(4, 5, 6, 7))
+print(avg())
 ```
 
 ### Результат
@@ -292,26 +328,45 @@ print(f"Длина: {len(s)}, Нижний регистр: {lower_s}, Гласн
 ![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_3/ScreenKod/14(4.3).png)
 
 ### Вывод:
-Программа демонстрирует работу со строками, подсчет гласных, перевод в нижний регистр, замену подстрок и проверку начала и конца строки, что является примером комплексной обработки текста.
+
 
 ## №15
 Создайте три переменные: день (тип данных - числовой), месяц (тип данных - строка), год (тип данных - числовой) и выведите в консоль текущую дату в формате: "Сегодня день месяц год. Всего хорошего!" используя F строку и оператор end внутри print), в котором вы должны написать фразу "Всего хорошего!". Программа должна занимать не более двух строк редактора кода.
 
 ```
-string = 'hello'
-memory = " world"
-values = [0, 2, 4, 6, 8, 10]
-counter = 0
+math import sqrt
 
-while counter != 10:
-    print(string + memory)
-    print(string)
-    counter += 1
+def calculate_triangle_area(a, b, c):
+    s = (a + b + c) / 2
+    if a + b <= c or a + c <= b or b + c <= a:
+        return None
+    area = sqrt(s * (s - a) * (s - b) * (s - c))
+    return area
+```
+
+```
+import triangle
+
+if __name__ == "__main__":
+    try:
+        a = float(input("Введите длину первой стороны треугольника: "))
+        b = float(input("Введите длину второй стороны треугольника: "))
+        c = float(input("Введите длину третьей стороны треугольника: "))
+    except ValueError:
+        print("Ошибка: Введите числовые значения для сторон треугольника.")
+        exit()
+
+    area = triangle.calculate_triangle_area(a, b, c) # triangle. - важно!
+
+    if area is None:
+        print("Треугольник с такими сторонами не существует.")
+    else:
+        print("Площадь треугольника:", area)
 ```
 
 ### Результат
 ![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_3/ScreenKod/15.png)
 
 ### Вывод:
-Программа формирует строку с датой, используя разные типы переменных и форматирование с F-строками. Вывод завершается дополнительной фразой с использованием параметра end.
+
 
