@@ -23,11 +23,10 @@
 "точку входа".
 
 ```  python
-def main():
-    print(2+2)
+set_1 = {'White', 'Black', 'Red', 'Pink'}
+set_2 = {'Red', 'Green', 'Blue', 'Red'}
 
-if __name__ == '__main__':
-    main()
+print(set_1 - set_2)
 ```
 
 ### Результат
@@ -40,13 +39,11 @@ if __name__ == '__main__':
 Напишите функцию, которая выполняет любые арифметические действия, возвращает при помощи return значение в место, откуда вызывали функцию. Выведите результат в консоль. Вызовите функцию используя "точку входа".
 
 ```
-def main():
-    result = 2 + 2
-    return result
-
-if __name__ == '__main__':
-    answer = main()
-    print(answer)
+a = set('abcdefg')
+print(a)
+for i in range(1, 5):
+    a.add(i)
+print(a)
 ```
 
 ### Результат
@@ -63,15 +60,14 @@ if __name__ == '__main__':
 c"y"и "two"
 
 ```
-def main(one, two):
-    result = one + two
-    return result
+def replace(input_list):
+    memory = input_list[0]
+    input_list[0] = input_list[-1]
+    input_list[-1] = memory
 
-for i in range(5):
-    x = 1
-    y = 10
-    answer = main(x, y)
-    print(answer)
+    return input_list
+
+print(replace([1, 2, 3, 4, 5]))
 ```
 
 ### Результат
@@ -85,18 +81,8 @@ for i in range(5):
 Для закрепления понимания работы с кортежами настоятельно рекомендуем поменять аргументы вызова функции, вручную посчитать результат, только потом запустить программу с новыми значениями и проверить себя, насколько вы поняли данный аспект программирования.
 
 ```
-def main(x, *args):
-    one = x
-    two = sum(args)
-    three = float(len(args))
-
-    print(f"one={one}\ntwo={two}\nthree={three}")
-
-    return x + sum(args) / float(len(args))
-
-if __name__ == '__main__':
-    result = main(10, 0, 1, 2, -1, 0, -1, 1, 2)
-    print(f"\nresult={result}")
+a = [12, 54, 345, 4543, 6565, 6775, 87878, 87865, 898767, 978675]
+print(a[2:6])
 ```
 
 ### Результат
@@ -110,20 +96,12 @@ if __name__ == '__main__':
 Комментарии в коде и теоретическая часть помогут вам разобраться в этом нелегком аспекте. Вызовите функцию используя "точку входа".
 
 ```
-def main(**kwargs):
-    for i in kwargs.items():
-        print(i[0], i[1])
+def useless(lst):
+    return max(lst) / len(lst)
 
-    print()
-
-    for key in kwargs:
-        print(f"{key} = {kwargs[key]}")
-
-if __name__ == '__main__':
-    main(x=[1, 2, 3], y=[3, 3, 0], z=[2, 3, 0], q=[3, 3, 0], w=[3, 3, 0])
-    print()
-
-    main(**{'x': [1, 2, 3], 'y': [3, 3, 0]})
+print(useless([3, 4, 65, 34, 6]))
+print(useless([-34, 545, 34.4, 45.3, 654.34, 65.654, 345, 65, 23, 56.43]))
+print(useless([334, -42, 45, 34.2, -543, -342.342, 54, 34, -23]))
 ```
 
 ### Результат
@@ -137,16 +115,13 @@ if __name__ == '__main__':
 "**kwargs". Вторая считает среднее арифметическое из значений первой функции. Вызовите первую функцию используя "точку входа" и минимум 4 аргумента.
 
 ```
-def main(**kwargs):
+superhoroes = ['superman', 'spiderman', 'batman']
 
-    for i, j in kwargs.items():
-        print(f"{i}. Mean = {mean(j)}")
+nikolay, vasiliy, ivan = superhoroes
 
-def mean(data):
-    return sum(data) / float(len(data))
-
-if __name__ == "__main__":
-    main(x=[1, 2, 3], y=[3, 3, 0])
+print('Николай -', nikolay)
+print('Василий -', vasiliy)
+print('Иван -', ivan)
 ```
 
 ### Результат
@@ -159,10 +134,11 @@ if __name__ == "__main__":
 Создайте дополнительный файл .ру. Напишите в нем любую функцию, которая будет что угодно выводить в консоль, но не вызывайте ее в нем. Откройте файл main.py, импортируйте в него функцию из нового файла и при помощи "точки входа" вызовите эту функцию.
 
 ```
-from for_import import say_hello
-
-if __name__ == '__main__':
-    say_hello()
+a = [-34.2, 32, 34.34, 45, -54, 45.3, 45, -543]
+a.sort()
+print('Отсортированный список:\n', a)
+a.pop(0)
+print('Отсортированный список без наименьшего элемента:\n', a)
 ```
 
 ### Результат
@@ -175,16 +151,18 @@ if __name__ == '__main__':
 Напишите программу, которая будет выводить корень, синус, косинус полученного от пользователя числа.
 
 ```
-from math import *
+from random import randint
 
-def main():
-    value = int(input('Введите значение: '))
-    print(sqrt(value))
-    print(sin(value))
-    print(cos(value))
+def list_maker():
+    a = [randint(1, 100)] * randint(3, 10)
+    return a
 
 if __name__ == '__main__':
-    main()
+    result = []
+    for i in range(randint(1, 5)):
+        result.append(list_maker())
+
+    print(result)
 ```
 
 ### Результат
@@ -199,24 +177,21 @@ if __name__ == '__main__':
 Напишите программу, которая будет рассчитывать какой день недели будет через п-нное количество дней, которые укажет пользователь.
 
 ```
-from datetime import datetime as dt
-from datetime import timedelta as td
-
-def main():
-    print(
-        f"Сегодня {dt.today().date()}. "
-        f"День недели - {dt.today().isoweekday()}"
-    )
-    n = int(input('Введите количество дней: '))
-    today = dt.today()
-    result = today + td(days=n)
-    print(
-        f"Через {n} дней будет {result.date()}. "
-        f"День недели - {result.isoweekday()}"
-    )
+def superset(set_1, set_2):
+    if set_1 > set_2:
+        print(f'Объект {set_1} является чистым супермножеством')
+    elif set_1 < set_2:
+        print(f'Объект {set_2} является чистым супермножеством')
+    elif set_1 == set_2:
+        print(f'Множества равны')
+    else:
+        print('Супермножества не обнаружены')
 
 if __name__ == '__main__':
-    main()
+    superset({1, 4, 5, 3}, {23 ,4})
+    superset({1, 4, 5, 3}, {4, 23, 4, 6})
+    superset({23, 4}, {4, 23, 4, 6})
+    superset({45, 454}, {23, 4})
 ```
 
 ### Результат
@@ -229,28 +204,8 @@ if __name__ == '__main__':
 Напишите программу с использованием глобальных переменных, которая будет считать площадь треугольника или прямоугольника в зависимости от того, что выберет пользователь. Получение всей необходимой информации реализовать через input, а подсчет площадей выполнить при помощи функций. Результатом программы будет число, равное площади, необходимой фигуры.
 
 ```
-global result
-
-def rectangle():
-    a = float(input("Ширина: "))
-    b = float(input("Высота: "))
-    global result
-    result = a * b
-
-def triangel():
-    a = float(input("Основание: "))
-    h = float(input("Высота: "))
-    global result
-    result = 0.5 * a * h
-
-figure = input("1-прямоугольник, 2-треугольник: ")
-
-if figure == '1':
-    rectangle()
-elif figure == '2':
-    triangel()
-
-print(f"Площадь: {result}")
+my_list = [2, 5, 8, 3]
+print(my_list[::-1])
 ```
 ### Результат
 ![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_4/Screen/10.png)
@@ -262,39 +217,41 @@ print(f"Площадь: {result}")
 Выведите в консоль булевую переменную False, не используя слово False в строке или изначально присвоенную булевую переменную. Программа должна занимать не более двух строк редактора кода.
 
 ```
-from datetime import datetime  # Импортирует модуль datetime для работы с датой и временем.
-from math import sqrt  # Импортирует функцию sqrt из модуля math для вычисления квадратного корня.
+def analyze_restaurant_visits(visits):
 
+    num_checks = len(visits)
+    unique_visitors = len(set(visits))
 
-def main(**kwargs):
-    """
-    Функция main вычисляет и выводит расстояние от начала координат до точек, заданных в kwargs.
+    visitor_counts = {}
+    for visitor in visits:
+        if visitor in visitor_counts:
+            visitor_counts[visitor] += 1
+        else:
+            visitor_counts[visitor] = 1
 
-    Args:
-        **kwargs: Неименованные аргументы, представляющие собой точки в двумерном пространстве.
-                  Каждый аргумент должен быть списком или кортежем из двух чисел, представляющих координаты x и y.
-    """
-    for key in kwargs.items():  # Итерируется по всем переданным именованным аргументам (ключ и значение).
-        # key это кортеж вида ('one', [10, 3])
-        result = sqrt(key[1][0]**2 + key[1][1]**2)  # Вычисляет расстояние от начала координат до точки.
-        # key[1] - это список координат [10, 3]
-        # key[1][0] - это координата x (10)
-        # key[1][1] - это координата y (3)
-        # sqrt(x^2 + y^2) - формула для вычисления расстояния
-        print(result)  # Выводит вычисленное расстояние.
+    most_frequent_visitor = None
+    max_visits = 0
+    for visitor, count in visitor_counts.items():
+        if count > max_visits:
+            most_frequent_visitor = visitor
+            max_visits = count
 
+    print("--- Статистика посещений ресторана ---")
+    print(f"Всего выдано чеков: {num_checks}")
+    print(f"Количество уникальных посетителей: {unique_visitors}")
+    if most_frequent_visitor:
+        print(f"Работник, посетивший ресторан больше всех раз: {most_frequent_visitor} (посещений: {max_visits})")
+    else:
+        print("Посещений не было.")
 
-if __name__ == '__main__':  # Проверяет, является ли этот скрипт главным запускаемым файлом.
-    start_time = datetime.now()  # Записывает время начала выполнения программы.
-    main(  # Вызывает функцию main с именованными аргументами.
-        one=[10, 3],  # Координаты точки 'one' (x=10, y=3).
-        two=[5, 4],  # Координаты точки 'two' (x=5, y=4).
-        three=[15, 13],  # Координаты точки 'three' (x=15, y=13).
-        four=[93, 53],  # Координаты точки 'four' (x=93, y=53).
-        five=[133, 15]  # Координаты точки 'five' (x=133, y=15).
-    )
-    time_costs = datetime.now() - start_time  # Вычисляет время выполнения программы.
-    print(f" Время выполнения программы - {time_costs}")  # Выводит время выполнения программы.
+# Данные о посещениях ресторана (пример)
+restaurant_visits = [8734, 2345, 8201, 6621, 9999, 1234, 5678, 8201, 8888, 4321, 3365,
+                    1478, 9865, 5555, 7777, 9998, 1111, 2222, 3333, 4444, 5656, 6666,
+                    5410, 7778, 8889, 4445, 1439, 9604, 8201, 3365, 7502, 3016, 4928,
+                    5837, 8201, 2643, 5017, 9682, 8530, 3250, 7193, 9051, 4506, 1987,
+                    3365, 5410, 7168, 7777, 9865, 5678, 8201, 4445, 3016, 4506, 4506]
+
+analyze_restaurant_visits(restaurant_visits)
 ```
 
 ### Вывод:
@@ -305,23 +262,24 @@ if __name__ == '__main__':  # Проверяет, является ли этот
 использовать стандартную библиотеку random. Программу нужно написать, используя одну функцию и "точку входа"
 
 ```
-import random
+def analyze_running_results(results):
 
-def roll_dice():
-  dice_value = random.randint(1, 6)
-  print("Значение кубика:", dice_value)
+    sorted_results = sorted(results)
+    top_3 = sorted_results[:3]
+    worst_3 = sorted_results[-3:]
+    results_from_10 = results[9:]
 
-  if dice_value in [5, 6]:
-    print("Вы победили")
-  elif dice_value in [3, 4]:
-    print("Повторяем бросок...")
-    roll_dice()
-  else:
-    print("Вы проиграли")
+    print("Анализ результатов бега")
+    print(f"Три лучших результата: {top_3}")
+    print(f"Три худших результата: {worst_3}")
+    print(f"Результаты начиная с 10-го: {results_from_10}")
 
 
-if __name__ == "__main__":
-  roll_dice()
+# Данные о результатах бега (пример)
+running_results = [10.2, 14.8, 19.3, 22.7, 12.5, 33.1, 38.9, 21.6, 26.4, 17.1, 30.2,
+                   35.7, 16.9, 27.8, 24.5, 16.3, 18.7, 31.9, 12.9, 37.4]
+
+analyze_running_results(running_results)
 ```
 
 ### Результат
@@ -334,14 +292,42 @@ if __name__ == "__main__":
 Напишите программу, которая будет выводить текущее время, с точностью до секунд на протяжении 5 секунд. Программу нужно написать с использованием цикла. Подсказка: необходимо использовать модуль datetime и time, а также вам необходимо как-то "усыплять" программу на 1 секунду.
 
 ```
-import datetime
-import time
+import math
 
-start_time = time.time()
-while time.time() - start_time < 5:
-    now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    print(now)
-    time.sleep(1)
+def calculate_triangle_area(a, b, c):
+    if a + b <= c or a + c <= b or b + c <= a:
+        return None
+
+    s = (a + b + c) / 2
+    area = math.sqrt(s * (s - a) * (s - b) * (s - c))
+    return area
+
+
+def analyze_triangle_sides(list1, list2, list3):
+    max_sides = [max(list1), max(list2), max(list3)]
+    min_sides = [min(list1), min(list2), min(list3)]
+
+    area_max = calculate_triangle_area(max_sides[0], max_sides[1], max_sides[2])
+    area_min = calculate_triangle_area(min_sides[0], min_sides[1], min_sides[2])
+
+    print("Площади треугольников")
+    if area_max:
+        print(f"Площадь треугольника из максимальных сторон: {area_max:.2f}")
+    else:
+        print("Треугольник из максимальных сторон не существует.")
+
+    if area_min:
+        print(f"Площадь треугольника из минимальных сторон: {area_min:.2f}")
+    else:
+        print("Треугольник из минимальных сторон не существует.")
+
+
+# Данные о сторонах треугольников
+one = [12, 25, 3, 48, 71]
+two = [5, 18, 40, 62, 98]
+three = [4, 21, 37, 56, 84]
+
+analyze_triangle_sides(one, two, three)
 ```
 
 ### Результат
@@ -354,12 +340,19 @@ while time.time() - start_time < 5:
 Напишите программу, которая считает среднее арифметическое от аргументов вызываемое функции, с условием того, что изначальное количество этих аргументов неизвестно. Программу необходимо реализовать используя одну функцию и "точку входа".
 
 ```
-def avg(*args):
-    return sum(args) / len(args) if args else 0
+def fix_grades(grades):
 
-print(avg(1, 2, 3))
-print(avg(4, 5, 6, 7))
-print(avg())
+    new_grades = [4 if grade == 3 else grade for grade in grades if grade != 2]
+    return new_grades
+
+grades1 = [2, 3, 4, 5, 3, 4, 5, 2, 2, 5, 3, 4, 3, 5, 4]
+grades2 = [4, 2, 3, 5, 3, 5, 4, 2, 2, 5, 4, 3, 5, 3, 4]
+grades3 = [5, 4, 3, 3, 4, 3, 3, 5, 5, 3, 3, 3, 3, 4, 4]
+
+print("Исправление оценок Борисом")
+print(f"Оценки до: {grades1}, После: {fix_grades(grades1)}")
+print(f"Оценки до: {grades2}, После: {fix_grades(grades2)}")
+print(f"Оценки до: {grades3}, После: {fix_grades(grades3)}")
 ```
 
 ### Результат
@@ -372,34 +365,37 @@ print(avg())
 Создайте два Python файла, в одном будет выполняться вычисление площади треугольника при помощи формулы Герона (необходимо реализовать через функцию), а во втором будет происходить взаимодействие с пользователем (получение всей необходимой информации и вывод результатов). Напишите эту программу и выведите в консоль полученную площадь.
 
 ```
-math import sqrt
+def create_set_with_duplicates(data_list):
 
-def calculate_triangle_area(a, b, c):
-    s = (a + b + c) / 2
-    if a + b <= c or a + c <= b or b + c <= a:
-        return None
-    area = sqrt(s * (s - a) * (s - b) * (s - c))
-    return area
-```
+    counts = {}
+    for num in data_list:
+        if num in counts:
+            counts[num] += 1
+        else:
+            counts[num] = 1
 
-```
-import triangle
+    result_set = set()
+    for num, count in counts.items():
+        result_set.add(num)
 
-if __name__ == "__main__":
-    try:
-        a = float(input("Введите длину первой стороны треугольника: "))
-        b = float(input("Введите длину второй стороны треугольника: "))
-        c = float(input("Введите длину третьей стороны треугольника: "))
-    except ValueError:
-        print("Ошибка: Введите числовые значения для сторон треугольника.")
-        exit()
+        for i in range(2, count + 1):
+            result_set.add(str(num) * i)
 
-    area = triangle.calculate_triangle_area(a, b, c) # triangle. - важно!
+    return result_set
 
-    if area is None:
-        print("Треугольник с такими сторонами не существует.")
-    else:
-        print("Площадь треугольника:", area)
+
+# Тестовые данные
+list_1 = [1, 1, 3, 3, 1]
+list_2 = [5, 5, 5, 5, 5, 5, 5]
+list_3 = [2, 2, 1, 2, 2, 5, 6, 7, 1, 3, 2, 2]
+
+set_1 = create_set_with_duplicates(list_1)
+set_2 = create_set_with_duplicates(list_2)
+set_3 = create_set_with_duplicates(list_3)
+
+print("Множество 1:", set_1)
+print("Множество 2:", set_2)
+print("Множество 3:", set_3)
 ```
 
 ### Результат
