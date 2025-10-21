@@ -22,7 +22,7 @@
 Составьте текстовый файл и положите его в одну директорию с программой на Python. Текстовый файл должен состоять минимум из двух строк.
 
 ### Результат
-![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_6/Screen/1.png)
+![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_7/Screen/1.png)
 
 ### Вывод:
 Демонстрируется использование словаря для замены цепочек if/elif и удобное получение значений по ключу с обработкой отсутствующих элементов.
@@ -37,7 +37,7 @@ f.close()
 ```
 
 ### Результат
-![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_6/Screen/2.png)
+![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_7/Screen/2.png)
 
 ### Вывод:
 Показано, как с помощью kwargs удобно обновлять словари, расширяя их динамически.
@@ -52,7 +52,7 @@ f.close()
 ```
 
 ### Результат
-![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_6/Screen/3.png)
+![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_7/Screen/3.png)
 
 ### Вывод:
 Демонстрируется работа с кортежами и списками для посимвольной обработки строки.
@@ -66,7 +66,7 @@ with open('input.txt') as f:
 ```
 
 ### Результат
-![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_6/Screen/4.png)
+![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_7/Screen/4.png)
 
 ### Вывод:
 Использование распаковки кортежа в аргументы функции упрощает передачу и работу с наборами данных.
@@ -81,7 +81,7 @@ with open('input.txt') as f:
 ```
 
 ### Результат
-![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_6/Screen/5.png)
+![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_7/Screen/5.png)
 
 ### Вывод:
 Пример проверки типов элементов и условной обработки в функциях для кортежей.
@@ -99,7 +99,7 @@ with open ('input.txt', 'r') as f:
 ```
 
 ### Результат
-![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_6/Screen/1.png)
+![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_7/Screen/6.png)
 
 ### Вывод:
 Демонстрируется использование словаря для замены цепочек if/elif и удобное получение значений по ключу с обработкой отсутствующих элементов.
@@ -116,7 +116,8 @@ with open('input.txt', 'w') as f:
 ```
 
 ### Результат
-![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_6/Screen/2.png)
+![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_7/Screen/7.png)
+![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_7/Screen/7%D0%B8%D1%82%D0%BE%D0%B3.png)
 
 ### Вывод:
 Показано, как с помощью kwargs удобно обновлять словари, расширяя их динамически.
@@ -139,7 +140,7 @@ print_docs('D:\For PI')
 ```
 
 ### Результат
-![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_6/Screen/3.png)
+![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_7/Screen/8.png)
 
 ### Вывод:
 Демонстрируется работа с кортежами и списками для посимвольной обработки строки.
@@ -164,7 +165,7 @@ print(longest_words('input.txt'))
 ```
 
 ### Результат
-![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_6/Screen/4.png)
+![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_7/Screen/9.png)
 
 ### Вывод:
 Использование распаковки кортежа в аргументы функции упрощает передачу и работу с наборами данных.
@@ -194,7 +195,8 @@ with open('rows_300.csv', 'w', encoding='utf-8', newline='') as file:
 ```
 
 ### Результат
-![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_6/Screen/5.png)
+![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_7/Screen/10.png)
+![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_7/Screen/10%D0%B8%D1%82%D0%BE%D0%B3.png)
 
 ### Вывод:
 Пример проверки типов элементов и условной обработки в функциях для кортежей.
@@ -220,7 +222,8 @@ print(f"Самое частое слово: '{most_common_word}' встреча�
 ```
 
 ### Результат
-![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_6/Screen/6.png)
+![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_7/Screen/11(1)%D0%A1%D1%82%D0%B0%D1%82%D1%8C%D1%8F.png)
+![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_7/Screen/11(1).png)
 
 ### Вывод:
 Поясняет преобразование строковых данных в базовые коллекции Python.
@@ -286,7 +289,8 @@ while True:
 ```
 
 ### Результат
-![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_6/Screen/7.png)
+![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_7/Screen/12(2).png)
+![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_7/Screen/12(2)%D1%83%D1%87%D0%B5%D1%82%20%D1%80%D0%B0%D1%81%D1%85%D0%BE%D0%B4%D0%BE%D0%B2.png)
 
 ### Вывод:
 Показывает, что кортежи неизменяемы и как создавать новые кортежи с нужной модификацией.
@@ -320,7 +324,7 @@ print(f"Файл содержит:\n{len(letters)} букв\n{len(words)} сло
 ```
 
 ### Результат
-![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_6/Screen/8.png)
+![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_7/Screen/13(3).png)
 
 ### Вывод:
 Демонстрируется применение collections.Counter и сортировки для анализа данных.
@@ -359,7 +363,7 @@ print(censor_text(sentence, banned_words))
 ```
 
 ### Результат
-![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_6/Screen/9.png)
+![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_7/Screen/14(4).png)
 
 ### Вывод:
 Упражнение на использование индексации, срезов и обработки исключений с кортежами.
@@ -385,7 +389,7 @@ print(f"Буква '{letter}' встречается {count} раз(а).")
 ```
 
 ### Результат
-![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_6/Screen/10.png)
+![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_7/Screen/15(5).png)
 
 
 ### Вывод:
