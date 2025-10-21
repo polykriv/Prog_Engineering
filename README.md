@@ -11,34 +11,15 @@
 | Задание 3 | + | + |
 | Задание 4 | + | + |
 | Задание 5 | + | + |
-| Задание 6 | + | + |
-| Задание 7 | + | + |
-| Задание 8 | + | + |
-| Задание 9 | + | + |
-| Задание 10| + | + |
+| Задание 6 | + |   |
+| Задание 7 | + |   |
+| Задание 8 | + |   |
+| Задание 9 | + |   |
+| Задание 10| + |   |
 
 #Лабораторная работа по Python
 ## №1
-В школе попросили написать программу для учителей, которая по номеру кабинета будет выводить ключ доступа и статус — занят кабинет или нет. Для этого нужно использовать словарь (dict), куда подаётся номер кабинета, а программа выводит соответствующую информацию. Если кабинет в словаре отсутствует, вывести "None" и статус "False". Это упражнение учит замене громоздких условий if/elif/else с помощью словаря.
-
-```  python
-request = int(input('Введите номер кабинета: '))
-
-dictionary = {
-    101: {'key': 1234, 'access': True},
-    102: {'key': 1337, 'access': True},
-    103: {'key': 8943, 'access': True},
-    104: {'key': 5555, 'access': False},
-    None: {'key': None, 'access': False}
-}
-
-response = dictionary.get(request)
-if not response:
-    response = dictionary[None]
-key = response.get('key')
-access = response.get('access')
-print(key, access)
-```
+Составьте текстовый файл и положите его в одну директорию с программой на Python. Текстовый файл должен состоять минимум из двух строк.
 
 ### Результат
 ![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_6/Screen/1.png)
@@ -47,19 +28,12 @@ print(key, access)
 Демонстрируется использование словаря для замены цепочек if/elif и удобное получение значений по ключу с обработкой отсутствующих элементов.
 
 ## №2
-Алексей создает функцию dict_maker(**kwargs), которая принимает любое количество параметров «ключ: значение» и обновляет словарь my_dict (с начальными данными {"first": "so easy"}). Это помогает вам понять, как создавать и обновлять словари с произвольным набором ключей и значений.
+Напишите программу, которая выведет только первую строку из вашего файла, при этом используйте конструкцию open()/close().
 
 ```
-from pprint import pprint
-
-my_dict = {'first': 'so easy'}
-
-def dict_maker(**kwargs):
-    my_dict.update(**kwargs)
-
-dict_maker(a1=1, a2=20, a3=54, a4=13)
-dict_maker(name='Михаил', age=31, weight=70, eyes_color='голубой')
-pprint(my_dict)
+f = open('input.txt', 'r')
+print(f.readline())
+f.close()
 ```
 
 ### Результат
@@ -69,13 +43,12 @@ pprint(my_dict)
 Показано, как с помощью kwargs удобно обновлять словари, расширяя их динамически.
 
 ## №3
-Нужно разложить строку на отдельные символы, используя кортеж (tuple). Для этого берётся любая строка, она "оборачивается" в tuple, что позволяет работать с символами посимвольно, например преобразовать в список или применить другие операции.
+Напишите программу, которая выведет все строки из вашего файла в массиве, при этом используйте конструкцию open()/close().
 
 ```
-input_string = 'HelloWorld'
-result = tuple(input_string)
-print(result)
-print(list(result))
+f = open('input.txt', 'r')
+print(f.readlines())
+f.close()
 ```
 
 ### Результат
@@ -85,17 +58,11 @@ print(list(result))
 Демонстрируется работа с кортежами и списками для посимвольной обработки строки.
 
 ## №4
-Вовочка решил сделать функцию, которая принимает на вход кортеж с данными (имя, возраст, место работы) и выводит эту информацию. Задание на работу с кортежами как с параметрами функций.
+Напишите программу, которая выведет все строки из вашего файла в массиве, при этом используйте конструкцию with open().
 
 ```
-def personal_info(name, age, company = 'unnamed'):
-    print(f"Имя: {name} Возраст: {age} Компания: {company}")
-
-tom = ("Григорий", 22)
-personal_info(*tom)
-
-bob = ("Георгий", 41, "Yandex")
-personal_info(*bob)
+with open('input.txt') as f:
+    print((f.readlines()))
 ```
 
 ### Результат
@@ -105,18 +72,125 @@ personal_info(*bob)
 Использование распаковки кортежа в аргументы функции упрощает передачу и работу с наборами данных.
 
 ## №5
-Для сопровождения первых лиц нужна функция, которая принимает кортеж из целых чисел и сортирует его по возрастанию. Если хотя бы один элемент не целое число, функция возвращает исходный кортеж без изменений.
+Напишите программу, которая выведет каждую строку из вашего файла отдельно, при этом используйте конструкцию with open().
 
 ```
-def tuple_sort(tpl):
-    for elm in tpl:
-        if not isinstance(elm, int):
-            return tpl
-    return tuple(sorted(tpl))
+with open('input.txt') as f:
+    for line in f:
+        print(line)
+```
 
-if __name__ == '__main__':
-    print(tuple_sort((5, 5, 3, 1, 9)))
-    print(tuple_sort((5, 5, 2.1, '1', 9)))
+### Результат
+![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_6/Screen/5.png)
+
+### Вывод:
+Пример проверки типов элементов и условной обработки в функциях для кортежей.
+
+## №6
+Напишите программу, которая будет добавлять новую строку в ваш файл, а потом выведет полученный файл в консоль. Вывод можно осуществлять любым способом. Обязательно проверьте сам файл, чтобы изменения в нем тоже отображались.
+
+```  python
+with open('input.txt', 'a+') as f:
+    f.write('\nNew line')
+
+with open ('input.txt', 'r') as f:
+    result = f.readlines()
+    print(result)
+```
+
+### Результат
+![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_6/Screen/1.png)
+
+### Вывод:
+Демонстрируется использование словаря для замены цепочек if/elif и удобное получение значений по ключу с обработкой отсутствующих элементов.
+
+## №7
+Напишите программу, которая перепишет всю информацию, которая была у вас в файле до этого, например напишет любые данные из произвольно вами составленного списка. Также не забудьте проверить что изменения сохранилась в файле.
+
+```
+lines = ['one', 'two', 'three']
+with open('input.txt', 'w') as f:
+    for line in lines:
+        f.write('\nLa La La ' + line)
+    print('Done!')
+```
+
+### Результат
+![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_6/Screen/2.png)
+
+### Вывод:
+Показано, как с помощью kwargs удобно обновлять словари, расширяя их динамически.
+
+## №8
+Выберите любую папку на своем компьютере, имеющую вложенные директории. Выведите на печать в терминал ее содержимое, как и всех подкаталогов при помощи функции print_docs(directory).
+
+```
+import os
+
+def print_docs(directory):
+    all_files = os.walk(directory)
+    for catalog in all_files:
+        print(f'Папка {catalog[0]} содержит:')
+    print(f'Директории: {", ".join([folder for folder in catalog[1]])}')
+    print(f'Файлы: {", ".join([file for file in catalog[2]])}')
+    print('-' * 40)
+
+print_docs('D:\For PI')
+```
+
+### Результат
+![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_6/Screen/3.png)
+
+### Вывод:
+Демонстрируется работа с кортежами и списками для посимвольной обработки строки.
+
+## №9
+Требуется реализовать функцию, которая выводит слово, имеющее максимальную длину (или список слов, если таковых несколько). Проверьте работоспособность программы на своем наборе данных
+
+```
+def longest_words(file):
+    with open(file, encoding='utf-8') as f:
+        words = f.read().split()
+        max_length = len(max(words, key=len))
+        for word in words:
+            if len(word) == max_length:
+                sought_words = word
+
+        if len(sought_words) == 1:
+            return sought_words[0]
+        return sought_words
+
+print(longest_words('input.txt'))
+```
+
+### Результат
+![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_6/Screen/4.png)
+
+### Вывод:
+Использование распаковки кортежа в аргументы функции упрощает передачу и работу с наборами данных.
+
+## №10
+Требуется создать csv-файл «rows_300.csv» со следующими столбцами:
+№ - номер по порядку (от 1 до 300);
+Секунда – текущая секунда на вашем ПК;
+Микросекунда – текущая миллисекунда на часах.
+Для наглядности на каждой итерации цикла искусственно приостанавливайте скрипт на 0,01 секунды.
+
+```
+import csv
+import time
+from datetime import datetime
+
+with open('rows_300.csv', 'w', encoding='utf-8', newline='') as file:
+    writer = csv.writer(file)
+    writer.writerow(['№', 'Секунда', 'Микросекунда'])
+
+    for i in range(1, 301):
+        now = datetime.now()
+        sec = now.second
+        microsec = int(now.microsecond / 1000)
+        writer.writerow([i, sec, microsec])
+        time.sleep(0.01)
 ```
 
 ### Результат
@@ -127,15 +201,22 @@ if __name__ == '__main__':
 
 #Самостоятельная работа по Python
 
-## №6
-При создании сайта у вас возникла потребность обрабатывать данные пользователя в странной форме, а потом переводить их в нужные форматы. Вы хотите принимать от пользователя последовательность чисел, разделенных пробелом, а после переформатировать эти данные в список и кортеж. Реализуйте программу с использованием input(). Результатом будет выведенный список и кортеж из начальных данных.
+## №11
+Найдите в интернете любую статью (объем статьи не менее 200 слов), скопируйте ее содержимое в файл и напишите программу, которая считает количество слов в текстовом файле и определит самое часто встречающееся слово. Результатом выполнения задачи будет: скриншот файла со статьей, листинг кода, и вывод в консоль, в котором будет указана вся необходимая информация.
 
 ```
-data = input('Введите последовательность чисел через пробел: ')
-list_data = data.split()
-tuple_data = tuple(list_data)
-print("Список:", list_data)
-print("Кортеж:", tuple_data)
+from collections import Counter
+
+with open("input.txt", "r", encoding="utf-8") as f:
+    text = f.read().lower()
+
+words = text.split()
+word_counts = Counter(words)
+most_common_word, most_common_count = word_counts.most_common(1)[0]
+
+print(f"Количество слов: {len(words)}")
+print(f"Самое частое слово: '{most_common_word}' встречается {most_common_count} раз")
+
 ```
 
 ### Результат
@@ -144,23 +225,64 @@ print("Кортеж:", tuple_data)
 ### Вывод:
 Поясняет преобразование строковых данных в базовые коллекции Python.
 
-## №7
-Николай хочет доказать, что кортежи неизменяемы, и создает функцию, которая удаляет первое появление определенного элемента из кортежа по значению, возвращая изменённый кортеж. Если элемента нет в кортеже, возвращается исходный кортеж. Входные данные и ожидаемые результаты даны.
+## №12
+У вас появилась потребность в ведении книги расходов, посмотрев все существующие варианты вы пришли к выводу что вас ничего не устраивает и нужно все делать самому. Напишите программу для учета расходов. Программа должна позволять вводить информацию о расходах, сохранять ее в файл и выводить существующие данные в консоль. Ввод информации происходит через консоль. Результатом выполнения задачи будет: скриншот файла с учетом расходов, листинг кода, и вывод в консоль, с демонстрацией работоспособности программы.
 
 ```
-def remove_element_from_tuple(input_tuple, element_to_remove):
+import json
 
+filename = "expenses.json"
+categories = ["еда", "одежда", "лекарства", "отдых", "коммунальные услуги"]
+
+def load_expenses():
     try:
-        index_to_remove = input_tuple.index(element_to_remove)
-        new_tuple = input_tuple[:index_to_remove] + input_tuple[index_to_remove+1:]
-        return new_tuple
-    except ValueError:
-        return input_tuple
+        with open(filename, "r", encoding="utf-8") as f:
+            # Защита от пустого файла
+            content = f.read().strip()
+            if not content:
+                return []
+            return json.loads(content)
+    except (FileNotFoundError, json.JSONDecodeError):
+        return []
 
-tuple1 = (1, 2, 3, 2, 4)
-element1 = 2
-result1 = remove_element_from_tuple(tuple1, element1)
-print(f"Исходный кортеж: {tuple1}, Удаляем: {element1}, Результат: {result1}")
+def save_expenses(expenses):
+    with open(filename, "w", encoding="utf-8") as f:
+        json.dump(expenses, f, indent=2, ensure_ascii=False)
+
+def add_expense():
+    print("Категории:", ", ".join(categories))
+    category = input("Категория расхода: ").lower()
+    if category not in categories:
+        print("Неверная категория!")
+        return
+    try:
+        amount = float(input("Сумма: "))
+    except ValueError:
+        print("Неправильный ввод суммы")
+        return
+    expenses.append({"Категория": category, "Сумма": amount})
+    save_expenses(expenses)
+    print("Расход добавлен.")
+
+def show_expenses():
+    if not expenses:
+        print("Расходы отсутствуют")
+    for e in expenses:
+        print(f"{e.get('Категория', 'неизвестно')}: {e.get('Сумма', 0)}")
+
+expenses = load_expenses()
+
+while True:
+    action = input("Введите '+' для добавления, 'смотреть' для просмотра, '->' для выхода: ").lower()
+    if action == "+":
+        add_expense()
+    elif action == "смотреть":
+        show_expenses()
+    elif action == "->":
+        print("Выход из программы.")
+        break
+    else:
+        print("Неверная команда, попробуйте снова.")
 ```
 
 ### Результат
@@ -169,27 +291,32 @@ print(f"Исходный кортеж: {tuple1}, Удаляем: {element1}, Р�
 ### Вывод:
 Показывает, что кортежи неизменяемы и как создавать новые кортежи с нужной модификацией.
 
-## №8
-Дана строка с последовательностью цифр (0-9), длиной минимум 15 символов. Требуется создать функцию, принимающую строку цифр и возвращающую словарь из 3-х самых частых чисел с количеством их вхождений. Значения словаря нужно вывести в порядке возрастания ключа.
+## №13
+Имеется файл input.txt с текстом на латинице. Напишите программу, которая выводит следующую статистику по тексту: количество букв латинского алфавита; число слов; число строк.
+
+Текст в файле:
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+
+Ожидаемый результат:
+Input file contains:
+108 letters
+20 words
+4 lines
 
 ```
-from collections import Counter
+with open("input.txt", "r", encoding="utf-8") as f:
+    lines = f.readlines()
 
-def top_3_frequent_numbers(s):
-    counts = Counter(map(int, s))
-    most_common = counts.most_common(3)
-    result_dict = dict(sorted(most_common, key=lambda x: x[0]))
-    return result_dict
+text = "".join(lines)
+# Фильтруем буквы латинского алфавита
+letters = [c for c in text if c.isalpha() and c.isascii()]
+words = text.split()
+num_lines = len(lines)
 
-if __name__ == "__main__":
-    input_str = input("Введите строку цифр (длина минимум 15): ")
-    if len(input_str) < 15 or not input_str.isdigit():
-        print("Ошибка: строка должна содержать не менее 15 цифр.")
-    else:
-        result = top_3_frequent_numbers(input_str)
-        print("Три самых частых числа с их количеством:")
-        for num in sorted(result.keys()):
-            print(f"{num}: {result[num]}")
+print(f"Файл содержит:\n{len(letters)} букв\n{len(words)} слов\n{num_lines} строк")
 ```
 
 ### Результат
@@ -198,28 +325,37 @@ if __name__ == "__main__":
 ### Вывод:
 Демонстрируется применение collections.Counter и сортировки для анализа данных.
 
-## №9
-Напишите функцию, которая принимает кортеж и элемент (id). Нужно вернуть новый кортеж, начиная с первого появления элемента и заканчивая вторым появлением включительно. Если элемент отсутствует — вернуть пустой кортеж, если встречается один раз — вернуть кортеж от этого элемента до конца исходного.
+## №14
+Напишите программу, которая получает на вход предложение, выводит его в терминал, заменяя все запрещенные слова звездочками * (количество звездочек равно количеству букв в слове). Запрещенные слова, разделенные символом пробела, хранятся в текстовом файле input.txt. Все слова в этом файле записаны в нижнем регистре. Программа должна заменить запрещенные слова, где бы они ни встречались, даже в середине другого слова. Замена производится независимо от регистра: если файл input.txt содержит запрещенное слово exam, то слова exam, Exam, ExaM, EXAM и exAm должны быть заменены на ****.
+
+Запрещенные слова:
+hello email python the exam wor is
+
+Предложение для проверки:
+Hello, world! Python IS the programming language of thE future. My
+EMAIL is....
+PYTHON is awesome!!!!
+
+Ожидаемый результат:
+*****, *** ** ** *** programming language of *** future. My
+***** **....
+****** ** awesome!!!!
 
 ```
-def tuple_subrange(tpl, element):
-    if element not in tpl:
-        return ()
-    first_idx = tpl.index(element)
-    try:
-        second_idx = tpl.index(element, first_idx + 1)
-        return tpl[first_idx:second_idx+1]
-    except ValueError:
-        return tpl[first_idx:]
+import re
 
-if __name__ == "__main__":
-    input_str = input("Введите элементы кортежа через пробел: ")
-    tuple_data = tuple(input_str.split())
+# Загрузка запрещённых слов из файла input.txt
+with open("input.txt", "r", encoding="utf-8") as f:
+    banned_words = f.read().lower().split()
 
-    element = input("Введите элемент для поиска: ")
+def censor_text(text, banned):
+    def replacer(match):
+        return "*" * len(match.group())
+    pattern = re.compile("|".join(map(re.escape, banned)), re.IGNORECASE)
+    return pattern.sub(replacer, text)
 
-    result = tuple_subrange(tuple_data, element)
-    print("Результат:", result)
+sentence = "Hello, world! Python IS the programming language of thE future. My EMAIL is.... PYTHON is awesome!!!!"
+print(censor_text(sentence, banned_words))
 ```
 
 ### Результат
@@ -228,23 +364,24 @@ if __name__ == "__main__":
 ### Вывод:
 Упражнение на использование индексации, срезов и обработки исключений с кортежами.
 
-## №10
-Самостоятельно придумайте задачу с использованием списка или кортежа, решите ее и проведите минимум три теста.
+## №15
+Самостоятельно придумайте и решите задачу, которая будет взаимодействовать с текстовым файлом.
 
 ```
-def unique_elements_count(lst, threshold):
-    unique_count = len(set(lst))
-    return unique_count > threshold
+from collections import Counter
 
-def test_task5():
-    print(unique_elements_count([1, 2, 3, 2, 1], 5))
+with open('input.txt', 'r', encoding='utf-8') as f:
+    text = f.read().lower()
 
-    print(unique_elements_count(['a', 'b', 'a', 'c'], 3))
+# Подсчитываем все буквы латинского алфавита
+letters = [c for c in text if c.isalpha() and c.isascii()]
+counter = Counter(letters)
 
-    print(unique_elements_count([], 0))
+letter = input("Введите букву для подсчёта её частоты: ").lower()
 
-if __name__ == "__main__":
-    test_task5()
+# Выводим количество вхождений этой буквы, если есть
+count = counter.get(letter, 0)
+print(f"Буква '{letter}' встречается {count} раз(а).")
 ```
 
 ### Результат
