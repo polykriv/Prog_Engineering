@@ -1,4 +1,4 @@
-# Тема_7: Работа с файлами (ввод, вывод)
+# Тема_7:ВВедение в ООП
 
 - Студентка: Кривощекова Полина Андреевна
 - Группа: ИВТ-23-1
@@ -11,15 +11,19 @@
 | Задание 3 | + | + |
 | Задание 4 | + | + |
 | Задание 5 | + | + |
-| Задание 6 | + |   |
-| Задание 7 | + |   |
-| Задание 8 | + |   |
-| Задание 9 | + |   |
-| Задание 10| + |   |
 
 #Лабораторная работа по Python
 ## №1
 Составьте текстовый файл и положите его в одну директорию с программой на Python. Текстовый файл должен состоять минимум из двух строк.
+
+``
+class Car:
+    def __init__(self, make, model):
+        self.make = make
+        self.model = model
+
+my_car = Car("Totota", "Corolla")
+```
 
 ### Результат
 ![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_7/Screen/1.png)
@@ -31,9 +35,17 @@
 Напишите программу, которая выведет только первую строку из вашего файла, при этом используйте конструкцию open()/close().
 
 ```
-f = open('input.txt', 'r')
-print(f.readline())
-f.close()
+class Car:
+    def __init__(self, make, model):
+        self.make = make
+        self.model = model
+
+    def drive(self):
+        print(f"Driving the {self.make} {self.model}")
+
+
+my_car = Car("Totota", "Corolla")
+my_car.drive()
 ```
 
 ### Результат
@@ -46,9 +58,25 @@ f.close()
 Напишите программу, которая выведет все строки из вашего файла в массиве, при этом используйте конструкцию open()/close().
 
 ```
-f = open('input.txt', 'r')
-print(f.readlines())
-f.close()
+fclass Car:
+    def __init__(self, make, model):
+        self.make = make
+        self.model = model
+
+    def drive(self):
+        print(f"Driving the {self.make} {self.model}")
+
+class ElectricCar(Car):
+    def __init__(self, make, model, battery_capacity):
+        super().__init__(make, model)
+        self.battery_capacity = battery_capacity
+
+    def charge(self):
+        print(f"Charging the {self.make} {self.model} with {self.battery_capacity} kWh")
+
+my_electric_car = ElectricCar("Tesla", "Model S", 75)
+my_electric_car.drive()
+my_electric_car.charge()
 ```
 
 ### Результат
@@ -61,8 +89,17 @@ f.close()
 Напишите программу, которая выведет все строки из вашего файла в массиве, при этом используйте конструкцию with open().
 
 ```
-with open('input.txt') as f:
-    print((f.readlines()))
+class Car:
+    def __init__(self, make, model):
+        self._make = make
+        self.__model = model
+
+    def drive(self):
+        print(f"Driving the {self._make} {self.__model}")
+
+my_car = Car("Totota", "Corolla")
+print(my_car._make)
+my_car.drive()
 ```
 
 ### Результат
@@ -75,9 +112,26 @@ with open('input.txt') as f:
 Напишите программу, которая выведет каждую строку из вашего файла отдельно, при этом используйте конструкцию with open().
 
 ```
-with open('input.txt') as f:
-    for line in f:
-        print(line)
+class Rectangle(Shape):
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+
+    def area(self):
+        return self.width * self.height
+
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+
+    def area(self):
+        return 3.14 * self.radius * self.radius
+
+rect = Rectangle(4, 5)
+print(rect.area())
+
+circle = Circle(3)
+print(circle.area())
 ```
 
 ### Результат
@@ -86,138 +140,23 @@ with open('input.txt') as f:
 ### Вывод:
 Пример итерации по файлу в цикле, где каждая строка выводится отдельно. Демонстрирует эффективный способ последовательного чтения больших файлов без загрузки всего содержимого в память.
 
-## №6
-Напишите программу, которая будет добавлять новую строку в ваш файл, а потом выведет полученный файл в консоль. Вывод можно осуществлять любым способом. Обязательно проверьте сам файл, чтобы изменения в нем тоже отображались.
-
-```  python
-with open('input.txt', 'a+') as f:
-    f.write('\nNew line')
-
-with open ('input.txt', 'r') as f:
-    result = f.readlines()
-    print(result)
-```
-
-### Результат
-![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_7/Screen/6.png)
-
-### Вывод:
-Код и вывод демонстрируют возможность добавления новой строки в существующий файл с помощью режима 'a+' и последующего чтения обновленного содержимого. Это полезно для ведения логов или накопления данных без перезаписи.
-
-## №7
-Напишите программу, которая перепишет всю информацию, которая была у вас в файле до этого, например напишет любые данные из произвольно вами составленного списка. Также не забудьте проверить что изменения сохранилась в файле.
-
-```
-lines = ['one', 'two', 'three']
-with open('input.txt', 'w') as f:
-    for line in lines:
-        f.write('\nLa La La ' + line)
-    print('Done!')
-```
-
-### Результат
-![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_7/Screen/7.png)
-![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_7/Screen/7%D0%B8%D1%82%D0%BE%D0%B3.png)
-
-### Вывод:
-Показывает, как полностью перезаписать содержимое файла данными из списка, используя режим 'w'. Помогает понять принципы перезаписи и форматирования данных при сохранении в файл.
-
-## №8
-Выберите любую папку на своем компьютере, имеющую вложенные директории. Выведите на печать в терминал ее содержимое, как и всех подкаталогов при помощи функции print_docs(directory).
-
-```
-import os
-
-def print_docs(directory):
-    all_files = os.walk(directory)
-    for catalog in all_files:
-        print(f'Папка {catalog[0]} содержит:')
-    print(f'Директории: {", ".join([folder for folder in catalog[1]])}')
-    print(f'Файлы: {", ".join([file for file in catalog[2]])}')
-    print('-' * 40)
-
-print_docs('D:\For PI')
-```
-
-### Результат
-![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_7/Screen/8.png)
-
-### Вывод:
-Функция и результат показывают рекурсивный обход заданной директории и вывод содержимого всех вложенных папок и файлов. Это важно для администрирования и анализа структуры каталогов.
-
-## №9
-Требуется реализовать функцию, которая выводит слово, имеющее максимальную длину (или список слов, если таковых несколько). Проверьте работоспособность программы на своем наборе данных
-
-```
-def longest_words(file):
-    with open(file, encoding='utf-8') as f:
-        words = f.read().split()
-        max_length = len(max(words, key=len))
-        for word in words:
-            if len(word) == max_length:
-                sought_words = word
-
-        if len(sought_words) == 1:
-            return sought_words[0]
-        return sought_words
-
-print(longest_words('input.txt'))
-```
-
-### Результат
-![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_7/Screen/9.png)
-
-### Вывод:
-Задача с поиском и выводом слова максимальной длины из файла учит работе с текстом, разбивке на слова, нахождению максимальных значений и условий для вывода.
-
-## №10
-Требуется создать csv-файл «rows_300.csv» со следующими столбцами:
-№ - номер по порядку (от 1 до 300);
-Секунда – текущая секунда на вашем ПК;
-Микросекунда – текущая миллисекунда на часах.
-Для наглядности на каждой итерации цикла искусственно приостанавливайте скрипт на 0,01 секунды.
-
-```
-import csv
-import time
-from datetime import datetime
-
-with open('rows_300.csv', 'w', encoding='utf-8', newline='') as file:
-    writer = csv.writer(file)
-    writer.writerow(['№', 'Секунда', 'Микросекунда'])
-
-    for i in range(1, 301):
-        now = datetime.now()
-        sec = now.second
-        microsec = int(now.microsecond / 1000)
-        writer.writerow([i, sec, microsec])
-        time.sleep(0.01)
-```
-
-### Результат
-![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_7/Screen/10.png)
-![Меню](https://github.com/polykriv/Prog_Engineering/blob/Tema_7/Screen/10%D0%B8%D1%82%D0%BE%D0%B3.png)
-
-### Вывод:
-Пример демонстрирует создание CSV-файла с использованием встроенного модуля csv, с записью нумерации, текущего времени (секунд и миллисекунд), и искусственной задержкой для иллюстрации динамики работы.
 
 #Самостоятельная работа по Python
 
-## №11
+## №6
 Найдите в интернете любую статью (объем статьи не менее 200 слов), скопируйте ее содержимое в файл и напишите программу, которая считает количество слов в текстовом файле и определит самое часто встречающееся слово. Результатом выполнения задачи будет: скриншот файла со статьей, листинг кода, и вывод в консоль, в котором будет указана вся необходимая информация.
 
 ```
-from collections import Counter
+class Book:
+    def __init__(self, title, author):
+        self.title = title
+        self.author = author
 
-with open("input.txt", "r", encoding="utf-8") as f:
-    text = f.read().lower()
+    def display(self):
+        print(f"Book: '{self.title}' by {self.author}")
 
-words = text.split()
-word_counts = Counter(words)
-most_common_word, most_common_count = word_counts.most_common(1)[0]
-
-print(f"Количество слов: {len(words)}")
-print(f"Самое частое слово: '{most_common_word}' встречается {most_common_count} раз")
+my_book = Book("1984", "George Orwell")
+my_book.display()
 
 ```
 
@@ -228,64 +167,26 @@ print(f"Самое частое слово: '{most_common_word}' встреча�
 ### Вывод:
 Выполнено подсчёт слов в текстовом файле и определение самого часто встречающегося слова. Выводит статистику, полезную для анализа больших текстов в различных приложениях.
 
-## №12
+## №7
 У вас появилась потребность в ведении книги расходов, посмотрев все существующие варианты вы пришли к выводу что вас ничего не устраивает и нужно все делать самому. Напишите программу для учета расходов. Программа должна позволять вводить информацию о расходах, сохранять ее в файл и выводить существующие данные в консоль. Ввод информации происходит через консоль. Результатом выполнения задачи будет: скриншот файла с учетом расходов, листинг кода, и вывод в консоль, с демонстрацией работоспособности программы.
 
 ```
-import json
+class Book:
+    def __init__(self, title, author, pages):
+        self.title = title
+        self.author = author
+        self.pages = pages
 
-filename = "expenses.json"
-categories = ["еда", "одежда", "лекарства", "отдых", "коммунальные услуги"]
+    def display(self):
+        print(f"Book: '{self.title}' by {self.author}, {self.pages} pages")
 
-def load_expenses():
-    try:
-        with open(filename, "r", encoding="utf-8") as f:
-            # Защита от пустого файла
-            content = f.read().strip()
-            if not content:
-                return []
-            return json.loads(content)
-    except (FileNotFoundError, json.JSONDecodeError):
-        return []
+    def is_long(self):
+        return self.pages > 300
 
-def save_expenses(expenses):
-    with open(filename, "w", encoding="utf-8") as f:
-        json.dump(expenses, f, indent=2, ensure_ascii=False)
+my_book = Book("1984", "George Orwell", 328)
+my_book.display()
+print("Is long book:", my_book.is_long())
 
-def add_expense():
-    print("Категории:", ", ".join(categories))
-    category = input("Категория расхода: ").lower()
-    if category not in categories:
-        print("Неверная категория!")
-        return
-    try:
-        amount = float(input("Сумма: "))
-    except ValueError:
-        print("Неправильный ввод суммы")
-        return
-    expenses.append({"Категория": category, "Сумма": amount})
-    save_expenses(expenses)
-    print("Расход добавлен.")
-
-def show_expenses():
-    if not expenses:
-        print("Расходы отсутствуют")
-    for e in expenses:
-        print(f"{e.get('Категория', 'неизвестно')}: {e.get('Сумма', 0)}")
-
-expenses = load_expenses()
-
-while True:
-    action = input("Введите '+' для добавления, 'смотреть' для просмотра, '->' для выхода: ").lower()
-    if action == "+":
-        add_expense()
-    elif action == "смотреть":
-        show_expenses()
-    elif action == "->":
-        print("Выход из программы.")
-        break
-    else:
-        print("Неверная команда, попробуйте снова.")
 ```
 
 ### Результат
@@ -295,7 +196,7 @@ while True:
 ### Вывод:
 Разработана программа учёта расходов с возможностью ввода через консоль, сохранения в JSON файл и просмотра данных. Это пример полноценного консольного приложения с работой с файлами и сериализацией данных.
 
-## №13
+## №8
 Имеется файл input.txt с текстом на латинице. Напишите программу, которая выводит следующую статистику по тексту: количество букв латинского алфавита; число слов; число строк.
 
 Текст в файле:
@@ -311,16 +212,27 @@ Input file contains:
 4 lines
 
 ```
-with open("input.txt", "r", encoding="utf-8") as f:
-    lines = f.readlines()
+class Book:
+    def __init__(self, title, author, pages):
+        self.title = title
+        self.author = author
+        self.pages = pages
 
-text = "".join(lines)
-# Фильтруем буквы латинского алфавита
-letters = [c for c in text if c.isalpha() and c.isascii()]
-words = text.split()
-num_lines = len(lines)
+    def display(self):
+        print(f"Book: '{self.title}' by {self.author}, {self.pages} pages")
 
-print(f"Файл содержит:\n{len(letters)} букв\n{len(words)} слов\n{num_lines} строк")
+class EBook(Book):
+    def __init__(self, title, author, pages, filesize):
+        super().__init__(title, author, pages)
+        self.filesize = filesize
+
+    def display(self):
+        super().display()
+        print(f"File size: {self.filesize} MB")
+
+my_ebook = EBook("1984", "George Orwell", 328, 2)
+my_ebook.display()
+
 ```
 
 ### Результат
@@ -329,7 +241,7 @@ print(f"Файл содержит:\n{len(letters)} букв\n{len(words)} сло
 ### Вывод:
 Программа считывает текст файла и выводит статистику по количеству букв латинского алфавита, слов и строк, что полезно для анализа текстовых данных и подготовке отчётов.
 
-## №14
+## №9
 Напишите программу, которая получает на вход предложение, выводит его в терминал, заменяя все запрещенные слова звездочками * (количество звездочек равно количеству букв в слове). Запрещенные слова, разделенные символом пробела, хранятся в текстовом файле input.txt. Все слова в этом файле записаны в нижнем регистре. Программа должна заменить запрещенные слова, где бы они ни встречались, даже в середине другого слова. Замена производится независимо от регистра: если файл input.txt содержит запрещенное слово exam, то слова exam, Exam, ExaM, EXAM и exAm должны быть заменены на ****.
 
 Запрещенные слова:
@@ -346,20 +258,38 @@ PYTHON is awesome!!!!
 ****** ** awesome!!!!
 
 ```
-import re
+class Book:
+    def __init__(self, title, author, pages):
+        self.title = title
+        self.author = author
+        self.pages = pages
 
-# Загрузка запрещённых слов из файла input.txt
-with open("input.txt", "r", encoding="utf-8") as f:
-    banned_words = f.read().lower().split()
+    def display(self):
+        print(f"Book: '{self.title}' by {self.author}, {self.pages} pages")
 
-def censor_text(text, banned):
-    def replacer(match):
-        return "*" * len(match.group())
-    pattern = re.compile("|".join(map(re.escape, banned)), re.IGNORECASE)
-    return pattern.sub(replacer, text)
+class EBook(Book):
+    def __init__(self, title, author, pages, filesize):
+        super().__init__(title, author, pages)
+        self.__filesize = filesize  # приватный атрибут с двойным подчёркиванием
 
-sentence = "Hello, world! Python IS the programming language of thE future. My EMAIL is.... PYTHON is awesome!!!!"
-print(censor_text(sentence, banned_words))
+    def display(self):
+        print(f"Book: '{self.title}' by {self.author}, {self.pages} pages")
+        print(f"File size: {self.__filesize} MB")
+
+    def get_filesize(self):
+        return self.__filesize
+
+    def set_filesize(self, size):
+        if size > 0:
+            self.__filesize = size
+        else:
+            print("File size must be positive")
+
+my_ebook = EBook("1984", "George Orwell", 328, 2)
+my_ebook.display()
+print("Current filesize:", my_ebook.get_filesize())
+my_ebook.set_filesize(3)
+print("Updated filesize:", my_ebook.get_filesize())
 ```
 
 ### Результат
@@ -368,24 +298,36 @@ print(censor_text(sentence, banned_words))
 ### Вывод:
 Реализовано цензурирование текста с заменой запрещённых слов на символы *. Учебная задача по обработке текста, регулярным выражениям, работам с файлами и регистро-независимому поиску.
 
-## №15
+## №10
 Самостоятельно придумайте и решите задачу, которая будет взаимодействовать с текстовым файлом.
 
 ```
-from collections import Counter
+class Book:
+    def __init__(self, title, author, pages):
+        self.title = title
+        self.author = author
+        self.pages = pages
 
-with open('input.txt', 'r', encoding='utf-8') as f:
-    text = f.read().lower()
+    def display(self):
+        print(f"Book: '{self.title}' by {self.author}, {self.pages} pages")
 
-# Подсчитываем все буквы латинского алфавита
-letters = [c for c in text if c.isalpha() and c.isascii()]
-counter = Counter(letters)
+class AudioBook(Book):
+    def __init__(self, title, author, length):
+        super().__init__(title, author, pages=0)  # страниц нет
+        self.length = length  # длительность в минутах
 
-letter = input("Введите букву для подсчёта её частоты: ").lower()
+    def display(self):
+        print(f"Audiobook: '{self.title}' by {self.author}, length {self.length} minutes")
 
-# Выводим количество вхождений этой буквы, если есть
-count = counter.get(letter, 0)
-print(f"Буква '{letter}' встречается {count} раз(а).")
+def show_info(book):
+    book.display()
+
+book1 = Book("1984", "George Orwell", 328)
+audiobook = AudioBook("1984", "George Orwell", 660)
+
+show_info(book1)
+show_info(audiobook)
+
 ```
 
 ### Результат
